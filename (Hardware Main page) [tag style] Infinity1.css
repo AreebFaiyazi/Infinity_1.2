@@ -1,0 +1,496 @@
+/* RESET + PERFECT ALIGNMENT */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* =========================================(Nav)========================================= */
+
+/* NAVBAR BASE */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  background: linear-gradient(135deg, #0A1729, #0A2540);
+  border-bottom: 1px solid #1E3A5F;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* CONTAINER */
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 18px 24px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* BRAND */
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.brand-text {
+  font-size: 22px;
+  font-weight: 700;
+  color: #E2E8F0;
+  transition: all 0.3s ease;
+}
+
+/* BRAND HOVER */
+.nav-brand:hover .brand-text {
+  color: #60A5FA;
+  letter-spacing: 1px;
+}
+
+/* LINKS */
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  position: relative;
+  color: #94A3B8;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* UNDERLINE ANIMATION */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+
+  width: 0%;
+  height: 2px;
+  background: #60A5FA;
+
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #E2E8F0;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ACTIVE LINK (IMPORTANT) */
+.nav-links a.active {
+  color: #60A5FA;
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* =========================================(Hero)========================================= */
+
+.hardware-hero {
+  position: relative;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  /* SAME STYLE AS HOME HERO */
+  background: linear-gradient(rgba(10, 23, 41, 0.85), rgba(10, 37, 64, 0.9)),
+              url("Hardware_hero.jpg") center/cover no-repeat;
+}
+
+/* FADE EFFECT (same as home) */
+.hardware-hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 220px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 23, 41, 0) 0%,
+    rgba(10, 23, 41, 0.4) 40%,
+    rgba(10, 23, 41, 0.7) 70%,
+    #13223A 100%
+  );
+
+  pointer-events: none;
+}
+
+/* CONTENT */
+.hardware-hero-content {
+  max-width: 800px;
+  padding: 20px;
+}
+
+/* TITLE (GLOW SAME AS HOME) */
+.hardware-hero-title {
+  font-size: 64px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 20px;
+
+  text-shadow: 
+    0 0 10px rgba(96,165,250,0.4),
+    0 0 20px rgba(59,130,246,0.3);
+}
+
+/* SUBTEXT */
+.hardware-hero-subtext {
+  font-size: 18px;
+  color: #94A3B8;
+  margin-bottom: 30px;
+}
+
+/* BUTTON */
+.hardware-hero-btn {
+  background: #3B82F6;
+  color: #ffffff;
+  padding: 14px 34px;
+  border-radius: 30px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.hardware-hero-btn:hover {
+  background: #2563EB;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(59,130,246,0.3);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hardware-hero-title {
+    font-size: 42px;
+  }
+
+  .hardware-hero-subtext {
+    font-size: 16px;
+  }
+}
+
+/* =========================================(Info Cards Expand Section)========================================= */
+
+.info-cards-section {
+  background: #13223A;
+  padding: 100px 0;
+}
+
+/* CONTAINER */
+.info-cards {
+  max-width: 1100px;
+  margin: 0 auto;
+
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* CARD BASE */
+.info-card {
+  width: 480px;
+  background: #0A1729;
+  border: 1px solid #1E3A5F;
+  border-left: 4px solid #3B82F6;
+  border-radius: 18px;
+  padding: 30px;
+
+  transition: all 0.3s ease;
+  height: auto;
+  overflow: visible;
+}
+
+/* HOVER EFFECT (side translate + glow) */
+.info-card:hover {
+  transform: translateX(8px);
+  box-shadow:
+    0 0 20px rgba(96,165,250,0.4),
+    0 0 40px rgba(59,130,246,0.3);
+  border-left: 4px solid #60A5FA;
+}
+
+/* TITLE */
+.info-title {
+  text-align: center;
+  font-size: 26px;
+  color: #60A5FA;
+  margin-bottom: 20px;
+
+  text-shadow:
+    0 0 8px rgba(96,165,250,0.5),
+    0 0 18px rgba(59,130,246,0.4);
+
+  position: relative;
+}
+
+/* UNDERLINE */
+.info-title::after {
+  content: "";
+  width: 60%;
+  height: 2px;
+  background: #3B82F6;
+  display: block;
+  margin: 8px auto 0 auto;
+}
+
+/* SUBHEADINGS */
+.info-subheading {
+  color: #93C5FD;
+  margin-top: 15px;
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+
+/* TEXT */
+.info-text {
+  color: #CBD5E1;
+  font-size: 14px;
+  line-height: 1.7;
+  position: relative;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .info-card {
+    width: 100%;
+  }
+}
+
+/* =========================================(Dropdown section)========================================= */
+
+/* SECTION */
+.alt-section {
+  background: #0A2540;
+  padding: 100px 0;
+}
+
+.alt-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* CARD */
+.alt-card {
+  background: #13223A;
+  border: 1px solid #1E3A5F;
+  border-radius: 20px;
+  padding: 40px;
+}
+
+/* HEADING */
+.alt-heading {
+  color: #60A5FA;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+/* IMAGE */
+.alt-image-center {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.alt-image-center img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* TEXT */
+.alt-text {
+  color: #CBD5E1;
+}
+
+.alt-text h4 {
+  color: #60A5FA;
+  margin-top: 15px;
+}
+
+.alt-text p {
+  margin-bottom: 10px;
+}
+
+/* MAIN DROPDOWN */
+.alt-dropdown {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.4s ease;
+  padding-top: 0;
+}
+
+/* SHOW SUB CARDS */
+.alt-card:hover .alt-dropdown {
+  max-height: 2000px;
+  padding-top: 20px;
+}
+
+/* SUB CARDS */
+.sub-card {
+  background: #0A1729;
+  border: 1px solid #1E3A5F;
+  border-radius: 14px;
+  padding: 20px;
+  transition: 0.3s ease;
+}
+
+/* CONTENT */
+.sub-content {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.sub-image {
+  width: 150px;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.sub-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sub-text {
+  flex: 1;
+  color: #CBD5E1;
+}
+
+.sub-text h3 {
+  color: #60A5FA;
+}
+
+.sub-text h4 {
+  color: #93C5FD;
+  margin-top: 8px;
+}
+
+/* SUB DROPDOWN (SMOOTH) */
+.sub-dropdown {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-10px);
+  overflow: hidden;
+
+  transition: 
+    max-height 0.4s ease,
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* SHOW INNER DROPDOWN */
+.sub-card:hover .sub-dropdown {
+  max-height: 300px;
+  opacity: 1;
+  transform: translateY(0);
+  margin-top: 10px;
+}
+
+.sub-dropdown p{
+  color: #CBD5E1;
+}
+
+.sub-dropdown h4{
+  color: #60A5FA;
+}
+
+/* DIVIDER */
+.sub-divider {
+  border: none;
+  height: 1px;
+  background: #1E3A5F;
+  margin: 25px 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .sub-content {
+    flex-direction: column;
+  }
+}
+
+.keyboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.keyboard-table th,
+.keyboard-table td {
+  border: 1px solid #1E3A5F;
+  padding: 10px;
+  color: #CBD5E1;
+}
+
+.keyboard-table th {
+  color: #60A5FA;
+}
+
+/* =========================================(Footer)========================================= */
+
+/* FOOTER */
+.footer {
+  background: #0A1729;
+  padding: 40px 0;
+  border-top: 1px solid #1E3A5F;
+  text-align: center;
+}
+
+/* TITLE */
+.footer-title {
+  display: block;
+  font-size: 20px;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* SUBTITLE */
+.footer-sub {
+  font-size: 12px;
+  color: #60A5FA;
+}
+
+/* COPYRIGHT */
+.footer-copy {
+  margin-top: 15px;
+  color: #94A3B8;
+  font-size: 14px;
+}
+
+/* NOTE */
+.footer-note {
+  font-size: 12px;
+  color: #64748B;
+  margin-top: 5px;
+}
